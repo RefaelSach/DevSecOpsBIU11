@@ -1,70 +1,121 @@
 # Git Basics (commit, diff, branches)
 
-1.
-2.
-3.
-4.
-5.
-6.
-7.
-8.
-9.
-10.
-11.
-12.
-13.
-14.
-15.
-16.
+1. the command to create a file is -> echo "1" > abc.txt
+2. to check the status i ran -> git status
+    the color is red
+3. the file's color is red.
+4. to add the file to index -> git add abc.txt
+    the file's color is now green, it is green as well in pycharm
+    to commit i did -> git commit -m "initial commit"
+5.  echo "2" >> abc.txt
+6.  the color now is red, the same as it was in step 2.
+    the differences are that in step 2 the file was Untracked. while now it is tracked and been modified
+7. the command is ->  git diff
+8.  This form is to view the changed you staged for the next commit is not given, it shows all staged changes.
+9.  the error says that the argument stage2 is unknown, it is not a valid option for diff and neither a file in the git.
+10. git add abc.txt
+11. git diff prints nothing.
+    because there is no difference between the index and the working tree.
+12. the command is -> git diff HEAD
+13. echo "3" >> abc.txt
+14. No the command does not print the same output.
+    Because "git diff" shows the difference between the working tree to the index.
+    and "git diff --staged" shows the difference between the index to the branch main.
+15. Because we did added the file to the index after we append "2" but we did not commit it yet.
+    and now we added another line and we did not add it to the index.
+16. git restore abc.txt
+    git restore --staged abc.txt
 
 # Resolve conflicts
 
-1.
-2.
-3.
-4.
-5.
-   1.
-   2.
-   3.
-   4.
-   5.
-6.
+1. the command to show branches is -> git branch
+        and this is all th branches i have:
+          bugfix/fix_readme_typo                                                                                                                                                                                                             ─╯
+          bugfix/open_kibana_port
+          dev
+          feature/data_retention_policy
+          feature/elasticsearch_helm_chart
+          feature/upgrade_angular_version
+          feature/version1
+          feature/version2
+          * main
+          reset_question
+
+2.  the command to create is - > git branch feature/lambda_migration
+    the command to checkout is -> git checkout feature/lambda_migration
+
+3. while i am in the branch feature/lambda_migration
+    i did the command -> git merge feature/version1 -m "initial merge"
+    3 files were changed, 2insertions and 2 deletions.
+4. Done
+5.Done
+   1.Done
+   2.Done
+   3.Done
+   4.Done
+   5.Done
+6. the added commits are:
+    this 3 lines.
+
+    @app.route('/update-profile', methods=['POST'])
+    def load_profile_picture()
+    app.run(debug=True, port=8081, host='0.0.0.0')
 
 # Cherry picking
 
-1.
+1.checking out first to main.  -> git check out main
+    then git branch feature/lambda_migration2
 2.
 3.
     1.
     2.
-4.
-5.
+4. file .env and file config.json
+5.  in this particular matter i think and no we dont care. because the files are empty.
 
 
 # Changes in working tree and switch branches
 
-1.
-2.
-3.
-4.
-5.
-6.
+1. yes i am in feature/lambda_migration2
+2. echo "something" > take.txt
+   echo "1" >> take.txt - 3 times.
+   and git add take.txt afterwards.
+3. the error is :
+    error: Your local changes to the following files would be overwritten by checkout:
+        take.txt
+    the two approaches suggested by git are:
+        commit your changes or stash them
+4. Done
+5.  no my changes are not in the file
+    the file contains a,b,c in 3 lines.
+6.  i checkout back to the feature/lambda_migration2
+    and i have no file named take.txt.
+    force checkout, does a hard reset.
+
 
 # Reset
 
-1.
+1. git checkout reset_question
 2.
-   1.
-   2.
-   3.
-   4.
-3.
+   1. files 10.txt is in the index and is waiting to be commited.
+      the command --soft HEAD~1 does go back to WIP state.
+   2. files 10.txt and 9.txt are untracked now.
+      the command --mixed , refreshes the index after a mixed reset
+   3. HEAD is now at 7b97268
+
+   4. 6.txt will be deleted and 10.txt will be untracked.
+    revert the changes that the related patches introduce
+3.  Git HEAD~1 means the previous commit of the last commit
 
 
 # Working with GitHub
 
-1.
-2.
-3.
-4.
+1. Done, that's the repo https://github.com/RefaelSach/myrepo3.git
+2. Done
+3. Done.
+    https://github.com/RefaelSach/myrepo3/tree/dev
+    https://github.com/RefaelSach/myrepo3/tree/main
+4. Done.
+
+
+Best regards,
+Refael Sachevski.
